@@ -1,0 +1,37 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "ratingDoc",
+      "databaseName": "ratingDB",
+      "collectionName": "ratingCollection",
+      "createIfNotExists": false,
+      "connectionStringSetting": "openhack-9_DOCUMENTDB",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "products",
+      "databaseName": "ratingDB",
+      "collectionName": "ratingCollection",
+      "connectionStringSetting": "openhack-9_DOCUMENTDB",
+      "sqlQuery": "SELECT * FROM c WHERE c.id = \"productList\"",
+      "direction": "in"
+    }
+  ]
+}
